@@ -1,0 +1,64 @@
+# ============================================================
+# Autonomous Data Science Crew — Modern Stable Stack (Py 3.11)
+# ============================================================
+
+# --- Multi-Agent Framework ---
+crewai==1.9.3
+crewai-tools>=0.3.0
+
+# --- LLM & Chains ---
+langchain>=0.2.0
+langchain-community>=0.2.0
+langchain-groq>=0.1.5
+groq>=0.9.0
+
+# --- Vector Database ---
+chromadb>=0.5.0
+sentence-transformers>=2.7.0
+
+# --- AutoML & ML ---
+scikit-learn>=1.4.2
+tpot>=0.12.2
+xgboost>=2.0.3
+lightgbm>=4.3.0
+imbalanced-learn>=0.12.2
+
+# --- EDA & Profiling ---
+ydata-profiling>=4.7.0
+pandas>=2.2.2
+numpy>=1.26.4
+scipy>=1.13.0
+
+# --- Visualization ---
+plotly>=5.22.0
+matplotlib>=3.8.4
+seaborn>=0.13.2
+kaleido>=0.2.1
+
+# --- Experiment Tracking ---
+mlflow>=2.12.2
+
+# --- Reporting ---
+jinja2>=3.1.4
+weasyprint>=62.3
+markdown>=3.6
+
+# --- Data Ingestion ---
+openpyxl>=3.1.2
+pyarrow>=16.0.0
+sqlalchemy>=2.0.30
+requests>=2.31.0
+
+# --- Utilities ---
+python-dotenv>=1.0.0
+pydantic>=2.7.0
+tenacity>=8.3.0
+rich>=13.7.1
+loguru>=0.7.2
+
+
+litellm
+crewai[tools]
+groq
+openai~=1.83.0
+litellm[proxy]

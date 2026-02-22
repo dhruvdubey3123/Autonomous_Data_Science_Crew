@@ -1,0 +1,22 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual env + secrets
+.venv/
+.env
+
+# Generated artifacts
+logs/
+reports/
+mlruns/
+chroma_db/
+models/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

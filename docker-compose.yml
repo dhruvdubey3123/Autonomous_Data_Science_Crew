@@ -1,0 +1,48 @@
+# ============================================================
+# Autonomous Data Science Crew — Modern Docker Compose
+# Python 3.11 + CrewAI 1.9.x
+# Fully local + free-tier compatible
+# ============================================================
+
+version: "3.9"
+
+services:
+
+  ds_crew:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: autonomous_ds_crew
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./reports:/app/reports
+      - ./mlruns:/app/mlruns
+      - ./chroma_db:/app/chroma_db
+      - ./logs:/app/logs
+    ports:
+      - "8000:8000"     # If you later expose FastAPI
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MLFLOW_TRACKING_URI=file:/app/mlruns
+    command: python main.py
+    restart: unless-stopped
+    depends_on:
+      - mlflow
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.12.2
+    container_name: mlflow_server
+    volumes:
+      - ./mlruns:/mlruns
+    ports:
+      - "5001:5000"
+    environment:
+      - MLFLOW_BACKEND_STORE_URI=/mlruns
+    command: >
+      mlflow server
+      --backend-store-uri /mlruns
+      --host 0.0.0.0
+      --port 5000
+    restart: unless-stopped
